@@ -1,0 +1,22 @@
+name: Test_CI
+on: [push]
+jobs:
+  Test-CI:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: sudo apt-get install cppcheck
+      - run: sudo apt-get -qq update
+      - run: sudo apt-get install -y libgtest-dev valgrind cmake
+      - run: sudo wget https://github.com/google/googletest/archive/release-1.7.0.tar.gz
+      - run: sudo tar -xf release-1.7.0.tar.gz
+      - run: cd googletest-release-1.7.0
+      - run: sudo cmake
+      - run: sudo make googletest-release-1.7.0
+      # - run: sudo cp -a include/gtest /usr/include
+      # - run: sudo cp -a libgtest_main.so libgtest.so /usr/lib/
+      - run: which valgrind
+      - run: sudo cppcheck Homework_1/get_data_by_user.c Homework_1/get_data_by_user.h Homework_1/split_logic.c Homework_1/split_logic.h Homework_1/waybill_structure.h Homework_1/main.c 
+      - run: sudo cmake
+      - run: ls
+      - run: valgrind --tool=memcheck --leak-check=full --show-leak-kinds=all --leak-resolution=med  --track-origins=yes chmod a+x ./Homework_1/test_split_logic.cpp
