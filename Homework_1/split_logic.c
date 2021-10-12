@@ -7,7 +7,7 @@
 
 void bubble_sort(waybill_structure *waybill, int num) {
 
-    if(waybill) {
+    if (waybill) {
 
         for (size_t i = 0; i < num; ++i) {
 
