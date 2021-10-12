@@ -104,7 +104,7 @@ static double set_double(double val, char *msg) {
         printf("Error! Input the positive number!\n");
         printf("%s", msg);
         while ((getchar()) != '\n')
-            ;// очистка буфера
+            ;
     }
 
     return val;
