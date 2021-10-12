@@ -6,6 +6,9 @@ project(Homework_1)
 
 set(CMAKE_CXX_STANDARD 14)
 
+add_compile_options(-Wall -Wextra -pedantic -Werror -lgcov --coverage)
+add_link_options(--coverage)
+
 set(H_SOURCE_FILES split_logic.h waybill_structure.h get_data_by_user.h)
 set(LIB_SOURCE_FILES split_logic.c get_data_by_user.c)
 
