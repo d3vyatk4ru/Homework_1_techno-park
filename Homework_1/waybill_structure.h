@@ -1,4 +1,3 @@
-// #pragma once
 #ifndef WAYBILL_STRUCTURE_H
 #define WAYBILL_STRUCTURE_H
 

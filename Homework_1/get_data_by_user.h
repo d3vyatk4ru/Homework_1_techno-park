@@ -2,10 +2,12 @@
 // Created by d3vyatk4 on 09.10.2021.
 //
 
-#include "waybill_structure.h"
-
 #ifndef GET_DATA_BY_USER_H
 #define GET_DATA_BY_USER_H
+
+#include "waybill_structure.h"
+
+void bad_memory(waybill_structure *waybill, waybill_structure *waybill_1);
 
 void print_waybills(int num, waybill_structure const *waybill);
 

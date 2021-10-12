@@ -8,7 +8,7 @@ extern "C" {
 #include "waybill_structure.h"
 }
 
-#define NUM 10
+constexpr int NUM = 10;
 
 // проверка корректности логики разделения накладных
 TEST(LOGIC_TEST, Split_data_price) {
@@ -27,7 +27,7 @@ TEST(LOGIC_TEST, Split_data_price) {
     double correct_waybill_2[5] = {9, 8, 6, 3, 1};
 
     // автоматическое заполнение
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < 10; ++i) {
         waybill[i].price = i + 1;
         waybill[i].num = i + 1;
     }
@@ -39,11 +39,11 @@ TEST(LOGIC_TEST, Split_data_price) {
     EXPECT_EQ(num_1, 5);
 
     // проверка самих значений в накладных
-    for (int i = 0; i < num_1; i++) {
+    for (int i = 0; i < num_1; ++i) {
         EXPECT_EQ(new_waybill_1[i].num, correct_waybill_1[i]);
     }
 
-    for (int i = 0; i < NUM - num_1; i++) {
+    for (int i = 0; i < NUM - num_1; ++i) {
         EXPECT_EQ(new_waybill_2[i].num, correct_waybill_2[i]);
     }
 
@@ -56,13 +56,13 @@ TEST(SORT_TEST, simple_sort) {
     waybill_structure *waybill = nullptr;
     waybill = new waybill_structure[NUM];
 
-    for (int i = 0; i < NUM; i++) {
+    for (int i = 0; i < NUM; ++i) {
         waybill[i].price = i + 1;
         waybill[i].num = i + 1;
     }
 
     bubble_sort(waybill, NUM);
-    for (int i = 0; i < NUM; i++) {
+    for (int i = 0; i < NUM; ++i) {
         EXPECT_EQ(waybill[i].num, NUM - i);
     }
 

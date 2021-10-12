@@ -25,19 +25,33 @@
    заполняет накладную и вовзращает ее;
 */
 
+void bad_memory(waybill_structure *waybill, waybill_structure *waybill_1) {
+
+    printf("Error! Can't allocate memory!");
+
+    if ((waybill) && (waybill_1)) {
+        free(waybill);
+        free(waybill_1);
+    } else if (waybill) {
+        free(waybill);
+    }
+}
+
 void print_waybills(int num, waybill_structure const *waybill) {
 
-    for (int i = 0; i < num; i++) {
-        printf("\nWaybill #%d\n\tVendor code: %d\n\tNumber: %d\n\tPrice: "
-               "%f\n\tWeight: %f\n",
-               i + 1, waybill[i].vendore_code, waybill[i].num, waybill[i].price,
-               waybill[i].weight);
+    if (waybill) {
+        for (int i = 0; i < num; ++i) {
+            printf("\nWaybill #%d\n\tVendor code: %d\n\tNumber: %d\n\tPrice: "
+                   "%f\n\tWeight: %f\n",
+                   i + 1, waybill[i].vendore_code, waybill[i].num, waybill[i].price,
+                   waybill[i].weight);
+        }
     }
 }
 
 static bool check_input_int(char *input) {
 
-    for (size_t i = 0; input[i] != 0; i++) {
+    for (size_t i = 0; input[i] != 0; ++i) {
 
         if (!(input[i] >= '0' && input[i] <= '9')) {
             return false;
@@ -56,7 +70,7 @@ int input_number_waybill() {
 
     while (!res) {
 
-        scanf("%s", input);
+        scanf("%9s", input);
         res = check_input_int(input);
 
         if (!res) {
@@ -82,8 +96,8 @@ static int set_int(int val, char *msg) {
 
     while (!res) {
 
-        scanf("%s", input);
-        res = check_input_int(input);// проверка на int
+        scanf("%9s", input);
+        res = check_input_int(input);// проверка на uint
 
         if (!res) {
 
