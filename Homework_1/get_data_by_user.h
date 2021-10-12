@@ -7,7 +7,7 @@
 #ifndef GET_DATA_BY_USER_H
 #define GET_DATA_BY_USER_H
 
-void print_waybills(int num,  waybill_structure const * waybill);
+void print_waybills(int num, waybill_structure const *waybill);
 
 int input_number_waybill();
 

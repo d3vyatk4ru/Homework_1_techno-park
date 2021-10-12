@@ -7,7 +7,7 @@
 #ifndef SPLIT_LOGIC_H
 #define SPLIT_LOGIC_H
 
-int waybill_split(waybill_structure* waybill, waybill_structure* waybill_new_1, waybill_structure* waybill_new_2, int num);
-void bubble_sort(waybill_structure* waybill, int num);
+int waybill_split(waybill_structure *waybill, waybill_structure *waybill_new_1, waybill_structure *waybill_new_2, int num);
+void bubble_sort(waybill_structure *waybill, int num);
 
 #endif

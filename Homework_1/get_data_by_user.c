@@ -1,8 +1,8 @@
-#include <stdio.h>
-#include <stdbool.h>
-#include <stdlib.h> 
-#include "waybill_structure.h"
 #include "get_data_by_user.h"
+#include "waybill_structure.h"
+#include <stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 
 /*  void print_waybills(int num,  waybill_structure const * waybill) --- выводит на экран накладные;
@@ -18,20 +18,19 @@
     static double set_double(double val, char* msg) --- елает запись переменных в накладную, тип которых double (float);
     
     waybill_structure input_waybill_values(waybill_structure waybill, int i) --- заполняет накладную и вовзращает ее;
-*/ 
+*/
 
 
-void print_waybills(int num,  waybill_structure const * waybill) {
-    
-    for ( int i = 0; i < num; i++ ) { 
-        printf("\nWaybill #%d\n\tVendor code: %d\n\tNumber: %d\n\tPrice: %f\n\tWeight: %f\n", i+1,\
-                                                    waybill[i].vendore_code, waybill[i].num, waybill[i].price, waybill[i].weight);
+void print_waybills(int num, waybill_structure const *waybill) {
+
+    for (int i = 0; i < num; i++) {
+        printf("\nWaybill #%d\n\tVendor code: %d\n\tNumber: %d\n\tPrice: %f\n\tWeight: %f\n", i + 1,
+               waybill[i].vendore_code, waybill[i].num, waybill[i].price, waybill[i].weight);
     }
-
 }
 
-static bool check_input_int(char* input) {
-    
+static bool check_input_int(char *input) {
+
     for (size_t i = 0; input[i] != 0; i++) {
 
         if (!(input[i] >= '0' && input[i] <= '9')) {
@@ -39,7 +38,7 @@ static bool check_input_int(char* input) {
         }
     }
 
-    return true; 
+    return true;
 }
 
 int input_number_waybill() {
@@ -59,7 +58,8 @@ int input_number_waybill() {
             printf("%s", "Input the number of waybill: ");
         }
 
-        while ((getchar()) != '\n');                        // очистка буфера
+        while ((getchar()) != '\n')
+            ;// очистка буфера
     }
 
     int num = atoi(input);
@@ -69,23 +69,24 @@ int input_number_waybill() {
     return num;
 }
 
-static int set_int(int val, char* msg) {
+static int set_int(int val, char *msg) {
 
     char input[10];
     bool res = false;
 
     printf("%s", msg);
-    
+
     while (!res) {
 
         scanf("%s", input);
-        res = check_input_int(input); // проверка на int
-        
+        res = check_input_int(input);// проверка на int
+
         if (!res) {
 
             printf("Error! Input the positive number!\n");
             printf("%s", msg);
-            while ((getchar()) != '\n');            // очистка буфера
+            while ((getchar()) != '\n')
+                ;
         }
     }
 
@@ -94,15 +95,16 @@ static int set_int(int val, char* msg) {
     return val;
 }
 
-static double set_double(double val, char* msg) {
+static double set_double(double val, char *msg) {
 
     printf("%s", msg);
-    
+
     while (val < 0 || scanf("%lf", &val) != 1) {
 
         printf("Error! Input the positive number!\n");
         printf("%s", msg);
-        while ((getchar()) != '\n');            // очистка буфера
+        while ((getchar()) != '\n')
+            ;// очистка буфера
     }
 
     return val;
