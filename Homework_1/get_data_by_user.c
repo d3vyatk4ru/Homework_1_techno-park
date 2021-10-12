@@ -4,28 +4,34 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
-/*  void print_waybills(int num,  waybill_structure const * waybill) --- выводит на экран накладные;
+/*  void print_waybills(int num,  waybill_structure const * waybill) --- выводит
+   на экран накладные;
 
     static bool check_input_int(char* input) --- проверяет число на int;
 
-    static bool check_input_double(char* input) --- проверяет число на double (float);
+    static bool check_input_double(char* input) --- проверяет число на double
+   (float);
 
-    input_number_waybill() --- возвращает количество наладных, введенных пользователем;
-    
-    static int set_int(int val, char* msg) --- делает запись переменных в накладную, тип которых int;
+    input_number_waybill() --- возвращает количество наладных, введенных
+   пользователем;
 
-    static double set_double(double val, char* msg) --- елает запись переменных в накладную, тип которых double (float);
-    
-    waybill_structure input_waybill_values(waybill_structure waybill, int i) --- заполняет накладную и вовзращает ее;
+    static int set_int(int val, char* msg) --- делает запись переменных в
+   накладную, тип которых int;
+
+    static double set_double(double val, char* msg) --- елает запись переменных
+   в накладную, тип которых double (float);
+
+    waybill_structure input_waybill_values(waybill_structure waybill, int i) ---
+   заполняет накладную и вовзращает ее;
 */
-
 
 void print_waybills(int num, waybill_structure const *waybill) {
 
     for (int i = 0; i < num; i++) {
-        printf("\nWaybill #%d\n\tVendor code: %d\n\tNumber: %d\n\tPrice: %f\n\tWeight: %f\n", i + 1,
-               waybill[i].vendore_code, waybill[i].num, waybill[i].price, waybill[i].weight);
+        printf("\nWaybill #%d\n\tVendor code: %d\n\tNumber: %d\n\tPrice: "
+               "%f\n\tWeight: %f\n",
+               i + 1, waybill[i].vendore_code, waybill[i].num, waybill[i].price,
+               waybill[i].weight);
     }
 }
 
@@ -63,8 +69,6 @@ int input_number_waybill() {
     }
 
     int num = atoi(input);
-
-    if (num == 0) num = -1;
 
     return num;
 }
@@ -114,7 +118,8 @@ waybill_structure input_waybill_values(waybill_structure waybill, int i) {
 
     printf("\nFill in the details of the of the #%d billway!\n", i + 1);
 
-    waybill.vendore_code = set_int(waybill.vendore_code, "Input vendor code of product: ");
+    waybill.vendore_code =
+            set_int(waybill.vendore_code, "Input vendor code of product: ");
 
     waybill.num = set_int(waybill.num, "Input number of product: ");
 

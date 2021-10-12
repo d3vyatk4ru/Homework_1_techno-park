@@ -11,7 +11,8 @@ void bubble_sort(waybill_structure *waybill, int num) {
         bool flag = true;
 
         for (size_t j = 0; j < num - i; j++) {
-            if (waybill[j].price * waybill[j].num < waybill[j + 1].price * waybill[j + 1].num) {
+            if (waybill[j].price * waybill[j].num <
+                waybill[j + 1].price * waybill[j + 1].num) {
                 flag = false;
                 waybill_structure tmp = waybill[j];
                 waybill[j] = waybill[j + 1];
@@ -24,7 +25,8 @@ void bubble_sort(waybill_structure *waybill, int num) {
     }
 }
 
-int waybill_split(waybill_structure *waybill, waybill_structure *waybill_new_1, waybill_structure *waybill_new_2, int num) {
+int waybill_split(waybill_structure *waybill, waybill_structure *waybill_new_1,
+                  waybill_structure *waybill_new_2, int num) {
 
     if ((waybill) && (waybill_new_1) && (waybill_new_2)) {
 

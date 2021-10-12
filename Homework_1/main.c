@@ -8,12 +8,14 @@ int main() {
 
     int num = input_number_waybill();
 
-    if (num == -1) return 0;
+    if (num == 0)
+        return 0;
 
     waybill_structure *waybill;
 
     // в случае успешного выделения памяти продолжаем работу, инче аварийный выход
-    if (!(waybill = (waybill_structure *) malloc(num * sizeof(waybill_structure)))) {
+    if (!(waybill =
+                  (waybill_structure *) malloc(num * sizeof(waybill_structure)))) {
         printf("Error: can't allocate memory");
         return 0;
     }
@@ -24,13 +26,15 @@ int main() {
 
     waybill_structure *new_waybill_1, *new_waybill_2;
 
-    if (!(new_waybill_1 = (waybill_structure *) malloc(num * sizeof(waybill_structure)))) {
+    if (!(new_waybill_1 =
+                  (waybill_structure *) malloc(num * sizeof(waybill_structure)))) {
         printf("Error: can't allocate memory");
         free(waybill);
         return 0;
     }
 
-    if (!(new_waybill_2 = (waybill_structure *) malloc(num * sizeof(waybill_structure)))) {
+    if (!(new_waybill_2 =
+                  (waybill_structure *) malloc(num * sizeof(waybill_structure)))) {
         printf("Error: can't allocate memory");
         free(waybill);
         free(new_waybill_1);
@@ -43,9 +47,7 @@ int main() {
 
     print_waybills(count_1, new_waybill_1);
     free(new_waybill_1);
-
     printf("#####################################################################");
-
     print_waybills(num - count_1, new_waybill_2);
     free(new_waybill_2);
 
