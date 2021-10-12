@@ -25,4 +25,4 @@ jobs:
       - run: sudo make googletest-release-1.7.0
       - run: sudo cppcheck Homework_1/get_data_by_user.c Homework_1/get_data_by_user.h Homework_1/split_logic.c Homework_1/split_logic.h Homework_1/waybill_structure.h Homework_1/main.c 
       - run: sudo cmake
-      - run: valgrind --tool=memcheck --leak-check=summary --track-origins=yes --leak-check=full --error-exitcode=1 ./test_program
+      - run: valgrind --tool=memcheck --leak-check=summary --track-origins=yes --leak-check=full --error-exitcode=1 ./Homework_1/test_program
