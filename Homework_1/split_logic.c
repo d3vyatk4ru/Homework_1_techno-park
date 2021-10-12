@@ -2,25 +2,8 @@
 // Created by d3vyatk4 on 09.10.2021.
 //
 #include "waybill_structure.h"
-#include <malloc.h>
 #include <stdbool.h>
 #include <stddef.h>
-
-//#define NUM 3
-
-// не удалось реализовать корректно
-
-//void bad_memory(waybill_structure** waybill) {
-//
-//    for (int i = 0; i < NUM; i++) {
-//        if (!(waybill[i])) {
-//            for (int j = i; j >= 0 ; --j) {
-//                free(waybill[i]);
-//            }
-//            break;
-//        }
-//    }
-//}
 
 void bubble_sort(waybill_structure *waybill, int num) {
     for (size_t i = 0; i < num; i++) {
