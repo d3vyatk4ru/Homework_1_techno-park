@@ -1,8 +1,8 @@
 #include "get_data_by_user.h"
 #include "split_logic.h"
 #include "waybill_structure.h"
-#include <malloc.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 int main() {
 
@@ -17,7 +17,7 @@ int main() {
     // в случае успешного выделения памяти продолжаем работу, инче аварийный выход
     if (!(waybill = (waybill_structure *) malloc(num * sizeof(waybill_structure)))) {
         bad_memory(NULL, NULL);
-        return 0;
+        return 1;
     }
 
     for (size_t i = 0; i < num; ++i) {
@@ -28,12 +28,12 @@ int main() {
 
     if (!(new_waybill_1 = (waybill_structure *) malloc(num * sizeof(waybill_structure)))) {
         bad_memory(waybill, NULL);
-        return 0;
+        return 1;
     }
 
     if (!(new_waybill_2 = (waybill_structure *) malloc(num * sizeof(waybill_structure)))) {
         bad_memory(waybill, new_waybill_1);
-        return 0;
+        return 1;
     }
 
     unsigned int criterion = input_split_criterion();

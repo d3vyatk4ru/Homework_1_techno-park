@@ -112,7 +112,7 @@ static int set_int(unsigned int val, char *msg, bool key) {
 
         scanf("%9s", input);
         if (key) {
-            res = check_input_int(input);// проверка на uint
+            res = check_input_int(input);// проверка на int
         } else {
             res = check_input_01(input);// проверка на 0 и 1
         }
