@@ -37,11 +37,11 @@ void bad_memory(waybill_structure *waybill, waybill_structure *waybill_1) {
     }
 }
 
-void print_waybills(int num, waybill_structure const *waybill) {
+void print_waybills(unsigned int num, waybill_structure const *waybill) {
 
     if (waybill) {
-        for (int i = 0; i < num; ++i) {
-            printf("\nWaybill #%d\n\tVendor code: %d\n\tNumber: %d\n\tPrice: "
+        for (size_t i = 0; i < num; ++i) {
+            printf("\nWaybill #%lu\n\tVendor code: %u\n\tNumber: %u\n\tPrice: "
                    "%f\n\tWeight: %f\n",
                    i + 1, waybill[i].vendore_code, waybill[i].num, waybill[i].price,
                    waybill[i].weight);
@@ -87,7 +87,7 @@ int input_number_waybill() {
     return num;
 }
 
-static int set_int(int val, char *msg) {
+static int set_int(unsigned int val, char *msg) {
 
     char input[10];
     bool res = false;
@@ -128,9 +128,9 @@ static double set_double(double val, char *msg) {
     return val;
 }
 
-waybill_structure input_waybill_values(waybill_structure waybill, int i) {
+waybill_structure input_waybill_values(waybill_structure waybill, unsigned int i) {
 
-    printf("\nFill in the details of the of the #%d billway!\n", i + 1);
+    printf("\nFill in the details of the of the #%u billway!\n", i + 1);
 
     waybill.vendore_code =
             set_int(waybill.vendore_code, "Input vendor code of product: ");

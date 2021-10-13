@@ -6,7 +6,7 @@
 
 int main() {
 
-    int num = input_number_waybill();
+    unsigned int num = input_number_waybill();
 
     if (num == 0) {
         return 0;
@@ -37,7 +37,7 @@ int main() {
     }
 
     // разделение на 2 накладные
-    int count_1 = waybill_split(waybill, new_waybill_1, new_waybill_2, num);
+    unsigned int count_1 = waybill_split(waybill, new_waybill_1, new_waybill_2, num);
     free(waybill);
 
     print_waybills(count_1, new_waybill_1);

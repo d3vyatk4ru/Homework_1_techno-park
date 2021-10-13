@@ -1,13 +1,13 @@
 #ifndef WAYBILL_STRUCTURE_H
 #define WAYBILL_STRUCTURE_H
 
-struct waybill_structure {
+typedef struct waybill_structure {
 
-    int vendore_code;// номер накладной
-    int num;         // кол-во единиц товара
-    double price;    // цена товара за единицу
-    double weight;   // вес товара
+    unsigned int vendore_code;// номер накладной
+    unsigned int num;         // кол-во единиц товара
+    double price;             // цена товара за единицу
+    double weight;            // вес товара
 
-} typedef waybill_structure;
+} waybill_structure;
 
 #endif

@@ -9,10 +9,10 @@
 
 void bad_memory(waybill_structure *waybill, waybill_structure *waybill_1);
 
-void print_waybills(int num, waybill_structure const *waybill);
+void print_waybills(unsigned int num, waybill_structure const *waybill);
 
 int input_number_waybill();
 
-waybill_structure input_waybill_values(waybill_structure waybill, int i);
+waybill_structure input_waybill_values(waybill_structure waybill, unsigned int i);
 
 #endif
