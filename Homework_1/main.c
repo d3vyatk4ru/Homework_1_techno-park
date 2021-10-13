@@ -1,3 +1,6 @@
+//
+// Created by d3vyatk4 on 09.10.2021.
+//
 #include "split_logic.h"
 #include "waybill_structure.h"
 #include "get_data_by_user.h"
