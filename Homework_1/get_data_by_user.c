@@ -9,6 +9,8 @@
 
     static bool check_input_int(char* input) --- проверяет число на int;
 
+    static bool check_input_01(char* input) --- проверяет число на 0 или 1;
+
     static bool check_input_double(char* input) --- проверяет число на double
    (float);
 
@@ -110,9 +112,9 @@ static int set_int(unsigned int val, char *msg, bool key) {
 
         scanf("%9s", input);
         if (key) {
-            res = check_input_int(input); // проверка на uint
+            res = check_input_int(input);// проверка на uint
         } else {
-            res = check_input_01(input); // проверка на 0 и 1
+            res = check_input_01(input);// проверка на 0 и 1
         }
 
         if (!res) {
