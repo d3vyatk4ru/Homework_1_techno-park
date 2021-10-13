@@ -36,8 +36,10 @@ int main() {
         return 0;
     }
 
+    unsigned int criterion = input_split_criterion();
+
     // разделение на 2 накладные
-    unsigned int count_1 = waybill_split(waybill, new_waybill_1, new_waybill_2, num);
+    unsigned int count_1 = waybill_split(waybill, new_waybill_1, new_waybill_2, num, criterion);
     free(waybill);
 
     print_waybills(count_1, new_waybill_1);

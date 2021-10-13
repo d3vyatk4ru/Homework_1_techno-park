@@ -15,4 +15,6 @@ int input_number_waybill();
 
 waybill_structure input_waybill_values(waybill_structure waybill, unsigned int i);
 
+unsigned int input_split_criterion();
+
 #endif

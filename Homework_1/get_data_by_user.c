@@ -61,6 +61,18 @@ static bool check_input_int(char *input) {
     return true;
 }
 
+static bool check_input_01(char *input) {
+
+    for (size_t i = 0; input[i] != 0; ++i) {
+
+        if (!(input[i] >= '0' && input[i] <= '1')) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
 int input_number_waybill() {
 
     bool res = false;
@@ -87,7 +99,7 @@ int input_number_waybill() {
     return num;
 }
 
-static int set_int(unsigned int val, char *msg) {
+static int set_int(unsigned int val, char *msg, bool key) {
 
     char input[10];
     bool res = false;
@@ -97,11 +109,15 @@ static int set_int(unsigned int val, char *msg) {
     while (!res) {
 
         scanf("%9s", input);
-        res = check_input_int(input);// проверка на uint
+        if (key) {
+            res = check_input_int(input); // проверка на uint
+        } else {
+            res = check_input_01(input); // проверка на 0 и 1
+        }
 
         if (!res) {
 
-            printf("Error! Input the positive number!\n");
+            printf("Error! Input the positive correct number!\n");
             printf("%s", msg);
             while ((getchar()) != '\n')
                 ;
@@ -132,14 +148,22 @@ waybill_structure input_waybill_values(waybill_structure waybill, unsigned int i
 
     printf("\nFill in the details of the of the #%u billway!\n", i + 1);
 
-    waybill.vendore_code =
-            set_int(waybill.vendore_code, "Input vendor code of product: ");
+    waybill.vendore_code = set_int(waybill.vendore_code, "Input vendor code of product: ", true);
 
-    waybill.num = set_int(waybill.num, "Input number of product: ");
+    waybill.num = set_int(waybill.num, "Input number of product: ", true);
 
     waybill.price = set_double(waybill.price, "Input price of product: ");
 
     waybill.weight = set_double(waybill.weight, "Input weight of product: ");
 
     return waybill;
+}
+
+unsigned int input_split_criterion() {
+
+    unsigned int criterion = 0;
+
+    criterion = set_int(criterion, "\nInput number {0, 1} for criterion of splitting.\n 0) Price criterion;\n 1) Weight criterion.\n Your answer: ", false);
+
+    return criterion;
 }

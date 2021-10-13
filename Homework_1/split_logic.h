@@ -8,7 +8,8 @@
 #define SPLIT_LOGIC_H
 
 int waybill_split(waybill_structure *waybill, waybill_structure *waybill_new_1,
-                  waybill_structure *waybill_new_2, unsigned int num);
-void bubble_sort(waybill_structure *waybill, unsigned int num);
+                  waybill_structure *waybill_new_2, unsigned int num, unsigned int criterion);
+
+void bubble_sort(waybill_structure *waybill, unsigned int num, unsigned int criterion);
 
 #endif
