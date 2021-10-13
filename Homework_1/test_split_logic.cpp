@@ -15,7 +15,7 @@ TEST(LOGIC_TEST, Split_data_price) {
 
     waybill_structure *waybill = new waybill_structure[NUM];
 
-    waybill_structure *new_waybill_1  = new waybill_structure[NUM];
+    waybill_structure *new_waybill_1 = new waybill_structure[NUM];
 
     waybill_structure *new_waybill_2 = new waybill_structure[NUM];
 
