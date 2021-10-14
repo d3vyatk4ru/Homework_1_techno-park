@@ -36,6 +36,7 @@ jobs:
       - run: ls
       - run: sudo ./test_program && sudo gcovr -r . --html --html-details -o cov.html
       - run: sudo valgrind --tool=memcheck --leak-check=summary --track-origins=yes --leak-check=full --error-exitcode=1 chmod a+x ./Homework_1/test_split_logic.cpp
+      - run: ls
       - uses: actions/upload-artifact@v2
         with:
           name: coverage-report
