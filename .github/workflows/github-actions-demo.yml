@@ -35,7 +35,7 @@ jobs:
       - run: sudo make Homework_1
       - run: gcovr -r .. --html --html-details -o cov.html
       - run: sudo cmake
-      - run: ./test_split_logic
+      - run: ./Homework_1/test_split_logic.cpp
       - run: sudo valgrind --tool=memcheck --leak-check=summary --track-origins=yes --leak-check=full --error-exitcode=1 chmod a+x ./Homework_1/test_split_logic.cpp
       - uses: actions/upload-artifact@v2
         with:
