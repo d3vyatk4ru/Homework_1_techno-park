@@ -7,32 +7,33 @@
 
 void bubble_sort(waybill_structure *waybill, unsigned int num, unsigned int criterion) {
 
-    if (waybill) {
+    if (!waybill) {
+        return;
+    }
 
-        for (size_t i = 0; i < num; ++i) {
+    for (size_t i = 0; i < num; ++i) {
 
-            bool flag = true;
-            for (size_t j = 0; j < num - i; ++j) {
+        bool flag = true;
+        for (size_t j = 0; j < num - i; ++j) {
 
-                if (criterion == 0) {
-                    if (waybill[j].price * waybill[j].num < waybill[j + 1].price * waybill[j + 1].num) {
-                        flag = false;
-                        waybill_structure tmp = waybill[j];
-                        waybill[j] = waybill[j + 1];
-                        waybill[j + 1] = tmp;
-                    }
-                } else {
-                    if (waybill[j].weight * waybill[j].num < waybill[j + 1].weight * waybill[j + 1].num) {
-                        flag = false;
-                        waybill_structure tmp = waybill[j];
-                        waybill[j] = waybill[j + 1];
-                        waybill[j + 1] = tmp;
-                    }
+            if (criterion == 0) {
+                if (waybill[j].price * waybill[j].num < waybill[j + 1].price * waybill[j + 1].num) {
+                    flag = false;
+                    waybill_structure tmp = waybill[j];
+                    waybill[j] = waybill[j + 1];
+                    waybill[j + 1] = tmp;
+                }
+            } else {
+                if (waybill[j].weight * waybill[j].num < waybill[j + 1].weight * waybill[j + 1].num) {
+                    flag = false;
+                    waybill_structure tmp = waybill[j];
+                    waybill[j] = waybill[j + 1];
+                    waybill[j + 1] = tmp;
                 }
             }
-            if (flag) {
-                break;
-            }
+        }
+        if (flag) {
+            break;
         }
     }
 }
