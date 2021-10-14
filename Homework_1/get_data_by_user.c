@@ -4,29 +4,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/*  void print_waybills(int num,  waybill_structure const * waybill) --- выводит
-   на экран накладные;
-
-    static bool check_input_int(char* input) --- проверяет число на int;
-
-    static bool check_input_01(char* input) --- проверяет число на 0 или 1;
-
-    static bool check_input_double(char* input) --- проверяет число на double
-   (float);
-
-    input_number_waybill() --- возвращает количество наладных, введенных
-   пользователем;
-
-    static int set_int(int val, char* msg) --- делает запись переменных в
-   накладную, тип которых int;
-
-    static double set_double(double val, char* msg) --- елает запись переменных
-   в накладную, тип которых double (float);
-
-    waybill_structure input_waybill_values(waybill_structure waybill, int i) ---
-   заполняет накладную и вовзращает ее;
-*/
-
 void bad_memory(waybill_structure *waybill, waybill_structure *waybill_1) {
 
     printf("Error! Can't allocate memory!");
