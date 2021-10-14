@@ -1,8 +1,11 @@
+<<<<<<< HEAD
+#include "get_data_by_user.h"
+=======
+>>>>>>> 94b325bdd4276c4a54e33ee257c472508f0c0be1
 #include "split_logic.h"
 #include "waybill_structure.h"
-#include "get_data_by_user.h"
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 int main() {
 
