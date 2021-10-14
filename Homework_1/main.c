@@ -13,9 +13,10 @@ int main() {
     }
 
     waybill_structure *waybill;
+    waybill = (waybill_structure *) malloc(num * sizeof(waybill_structure));
 
     // в случае успешного выделения памяти продолжаем работу, инче аварийный выход
-    if (!(waybill = (waybill_structure *) malloc(num * sizeof(waybill_structure)))) {
+    if (!waybill) {
         bad_memory(NULL, NULL);
         return 1;
     }
@@ -25,13 +26,15 @@ int main() {
     }
 
     waybill_structure *new_waybill_1, *new_waybill_2;
+    new_waybill_1 = (waybill_structure *) malloc(num * sizeof(waybill_structure));
 
-    if (!(new_waybill_1 = (waybill_structure *) malloc(num * sizeof(waybill_structure)))) {
+    if (!new_waybill_1) {
         bad_memory(waybill, NULL);
         return 1;
     }
 
-    if (!(new_waybill_2 = (waybill_structure *) malloc(num * sizeof(waybill_structure)))) {
+    new_waybill_2 = (waybill_structure *) malloc(num * sizeof(waybill_structure));
+    if (!new_waybill_2) {
         bad_memory(waybill, new_waybill_1);
         return 1;
     }
