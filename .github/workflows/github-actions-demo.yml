@@ -40,5 +40,5 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: coverage-report
-          path: cov.Homework_1_get_data_by_user.c.html
+          path: cov.html
 
