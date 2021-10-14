@@ -15,21 +15,22 @@ void bubble_sort(waybill_structure *waybill, unsigned int num, unsigned int crit
 
         bool flag = true;
         for (size_t j = 0; j < num - i; ++j) {
-
+            bool lower = false;
             if (criterion == 0) {
                 if (waybill[j].price * waybill[j].num < waybill[j + 1].price * waybill[j + 1].num) {
-                    flag = false;
-                    waybill_structure tmp = waybill[j];
-                    waybill[j] = waybill[j + 1];
-                    waybill[j + 1] = tmp;
+                    lower = true;
                 }
             } else {
                 if (waybill[j].weight * waybill[j].num < waybill[j + 1].weight * waybill[j + 1].num) {
-                    flag = false;
-                    waybill_structure tmp = waybill[j];
-                    waybill[j] = waybill[j + 1];
-                    waybill[j + 1] = tmp;
+                    lower = true;
                 }
+            }
+
+            if (lower) {
+                flag = false;
+                waybill_structure tmp = waybill[j];
+                waybill[j] = waybill[j + 1];
+                waybill[j + 1] = tmp;
             }
         }
         if (flag) {
