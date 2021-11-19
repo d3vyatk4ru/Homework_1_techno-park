@@ -1,0 +1,43 @@
+name: Test_CI
+on: [push]
+jobs:
+  formatting-check:
+    name: Formatting Check
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run clang-format style check for C/C++ programs.
+      uses: jidicula/clang-format-action@v4.2.0
+      with:
+        clang-format-version: '13'
+        check-path: 'src'
+  cpp-check:
+    name: cpp check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: sudo apt-get -qq update
+      - run: sudo apt-get install cppcheck
+      - run: sudo cppcheck Homework_1/get_data_by_user.c Homework_1/get_data_by_user.h Homework_1/split_logic.c Homework_1/split_logic.h Homework_1/waybill_structure.h Homework_1/main.c 
+  valgrind:
+    name: Valgrind and gcovr
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: sudo apt-get -qq update
+      - run: sudo apt-get install -y libgtest-dev valgrind cmake gcovr
+      - run: sudo wget https://github.com/google/googletest/archive/release-1.7.0.tar.gz
+      - run: sudo tar -xf release-1.7.0.tar.gz
+      - run: cd googletest-release-1.7.0
+      - run: sudo cmake
+      - run: sudo make googletest-release-1.7.0
+      - run: sudo cmake Homework_1
+      - run: sudo make
+      - run: ls
+      - run: sudo ./test_program && sudo gcovr -r . --html --html-details -o cov.html
+      - run: sudo valgrind --tool=memcheck --leak-check=summary --track-origins=yes --leak-check=full --error-exitcode=1 chmod a+x ./Homework_1/test_split_logic.cpp
+      - uses: actions/upload-artifact@v2
+        with:
+          name: coverage-report
+          path: cov.html
+
